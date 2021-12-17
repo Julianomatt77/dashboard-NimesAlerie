@@ -48,3 +48,20 @@ h3 {
   font-weight: bold;
   font-size: 1.8em;
 }
+
+.dropdown-divider {
+  border-color: #ffb976;
+}
+
+h3 {
+  text-align: center;
+}
+
+li {
+  padding-top: 10px;
+}
+
+* {
+  background: #18558f !important;
+  color: #ffb976 !important;
+}

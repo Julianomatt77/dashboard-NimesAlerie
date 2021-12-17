@@ -33,18 +33,6 @@ li {
   text-decoration: none;
 }
 
-h1,
-h2 {
-  font-family: "Dancing Script", cursive !important;
-  font-weight: bold;
-  color: #18558f;
-  text-align: center;
-  padding: 5px 0px;
-  font-size: 2em;
-}
-
-h3 {
-  color: #18558f;
-  font-weight: bold;
-  font-size: 1.8em;
+#side-bar {
+  width: 200px;
 }

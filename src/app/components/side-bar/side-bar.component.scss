@@ -1,0 +1,17 @@
+@import "../../app.component.scss";
+
+.dropdown-divider {
+  border-color: $orangeCustom;
+}
+
+h3 {
+  text-align: center;
+}
+
+li {
+  padding-top: 10px;
+}
+* {
+  background: $blueDark !important;
+  color: $orangeCustom !important;
+}
