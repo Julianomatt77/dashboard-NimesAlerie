@@ -16,6 +16,12 @@ import { ErrorsViewComponent } from './views/errors-view/errors-view.component';
 import { ErrorComponent } from './components/error/error.component';
 import { NgChartsModule } from 'ng2-charts';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -32,7 +38,19 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ErrorsViewComponent,
     ErrorComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, NgChartsModule, NgbModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    NgChartsModule,
+    NgbModule,
+    MatDatepickerModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatNativeDateModule,
+    MatDialogModule,
+    MatInputModule,
+    MatFormFieldModule,
+  ],
   providers: [],
   bootstrap: [AppComponent, DatePickerComponent],
 })

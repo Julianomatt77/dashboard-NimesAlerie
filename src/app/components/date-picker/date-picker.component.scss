@@ -1,0 +1,9 @@
+@import "../../app.component.scss";
+
+mat-date-range-picker {
+  z-index: 250;
+}
+
+#datePicker {
+  z-index: 200;
+}

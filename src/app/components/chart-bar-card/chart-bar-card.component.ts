@@ -1,11 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  // ChartConfiguration,
-  // ChartEvent,
-  ChartOptions,
-  ChartType,
-  ChartDataset,
-} from 'chart.js';
+import { ActivatedRoute } from '@angular/router';
+import { ChartOptions, ChartType, ChartDataset } from 'chart.js';
+import { Data } from 'src/app/models/Data';
+import { DatasService } from 'src/app/services/datas/datas.service';
 // import { BaseChartDirective } from 'ng2-charts';
 
 // import DataLabelsPlugin from 'chartjs-plugin-datalabels';
@@ -21,30 +18,59 @@ export class ChartBarCardComponent implements OnInit {
   datasets!: ChartDataset[];
   options!: ChartOptions;
 
-  constructor() {}
+  dataVisite!: Data[];
+  dataPanier!: Data[];
+  datasShop!: Data[];
+
+  constructor(
+    private datasService: DatasService,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
-    this.type = 'bar';
+    // //Récup de l'id
+    // const id = this.route.snapshot.params['id']; // car :id dans app routing module ts, return a string
 
-    this.labels = [
-      'Janvier',
-      'Février',
-      'Mars',
-      'Avril',
-      'Mai',
-      'Juin',
-      'Juillet',
-      'Aout',
-      'Septembre',
-      'Octobre',
-      'Novembre',
-      'Décembre',
-    ];
+    // this.datasService
+    //   .getDataById(+id) //+ before a string cast it to a number (ParseInt)
+    //   .then((data: Data) => {
+    //     this.data = data;
+    //   });
+
+    this.type = 'bar';
+    // this.dataVisite = this.datasService.datasVisite;
+    // this.dataPanier = this.datasService.datasPanier;
+    this.datasShop = this.datasService.datasShop;
+
+    this.labels = [];
+
+    //Affichage du label selon la date de la data
+    for (let i = 0; i < 12; i++) {
+      this.labels.push(this.datasShop[i].dataDate);
+    }
+
+    // this.datasets.data = [];
 
     this.datasets = [
       {
         label: 'Nombre de visites',
-        data: [120, 80, 45, 25, 70, 30, 90, 65, 47, 42, 66, 143],
+        data: [],
+        // this.data.push(this.datasShop[i].dataValue),
+
+        // data: [
+        //   this.dataVisite[0].dataValue,
+        //   this.dataVisite[1].dataValue,
+        //   this.dataVisite[2].dataValue,
+        //   this.dataVisite[3].dataValue,
+        //   this.dataVisite[4].dataValue,
+        //   this.dataVisite[5].dataValue,
+        //   this.dataVisite[6].dataValue,
+        //   this.dataVisite[7].dataValue,
+        //   this.dataVisite[8].dataValue,
+        //   this.dataVisite[9].dataValue,
+        //   this.dataVisite[10].dataValue,
+        //   this.dataVisite[11].dataValue,
+        // ],
         backgroundColor: '#ffb976',
         borderColor: '#ffb976',
         pointBackgroundColor: '#eefbfb',
@@ -55,7 +81,20 @@ export class ChartBarCardComponent implements OnInit {
       },
       {
         label: 'Nombre de paniers',
-        data: [88, 66, 33, 16, 58, 17, 71, 52, 39, 37, 62, 124],
+        data: [
+          // this.dataPanier[0].dataValue,
+          // this.dataPanier[1].dataValue,
+          // this.dataPanier[2].dataValue,
+          // this.dataPanier[3].dataValue,
+          // this.dataPanier[4].dataValue,
+          // this.dataPanier[5].dataValue,
+          // this.dataPanier[6].dataValue,
+          // this.dataPanier[7].dataValue,
+          // this.dataPanier[8].dataValue,
+          // this.dataPanier[9].dataValue,
+          // this.dataPanier[10].dataValue,
+          // this.dataPanier[11].dataValue,
+        ],
         backgroundColor: '#eefbfb',
         borderColor: '#ffb976',
         pointBackgroundColor: '#eefbfb',
@@ -65,6 +104,16 @@ export class ChartBarCardComponent implements OnInit {
         fill: 'origin',
       },
     ];
+
+    //Ajout des datas selon le type
+    for (let i = 0; i < this.datasShop.length; i++) {
+      if (this.datasShop[i].type === 'visite') {
+        this.datasets[0].data.push(this.datasShop[i].dataValue);
+      }
+      if (this.datasShop[i].type === 'panier') {
+        this.datasets[1].data.push(this.datasShop[i].dataValue);
+      }
+    }
 
     this.options = {
       responsive: true,
