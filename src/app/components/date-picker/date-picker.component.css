@@ -22,7 +22,6 @@
 
 * {
   font-family: "Roboto", sans-serif;
-  background: #eefbfb;
 }
 
 a {
@@ -47,12 +46,4 @@ h3 {
   color: #18558f;
   font-weight: bold;
   font-size: 1.8em;
-}
-
-mat-date-range-picker {
-  z-index: 250;
-}
-
-#datePicker {
-  z-index: 200;
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import {
   // ChartConfiguration,
   // ChartEvent,
@@ -6,6 +7,8 @@ import {
   ChartType,
   ChartDataset,
 } from 'chart.js';
+import { Data } from 'src/app/models/Data';
+import { DatasService } from 'src/app/services/datas/datas.service';
 // import { BaseChartDirective } from 'ng2-charts';
 
 @Component({
@@ -19,30 +22,29 @@ export class GraphicCardComponent implements OnInit {
   datasets!: ChartDataset[];
   options!: ChartOptions;
 
-  constructor() {}
+  datasShop!: Data[];
+
+  constructor(
+    private datasService: DatasService,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
     this.type = 'line';
 
-    this.labels = [
-      'Janvier',
-      'Février',
-      'Mars',
-      'Avril',
-      'Mai',
-      'Juin',
-      'Juillet',
-      'Aout',
-      'Septembre',
-      'Octobre',
-      'Novembre',
-      'Décembre',
-    ];
+    this.datasShop = this.datasService.datasShop;
+
+    this.labels = [];
+
+    //Affichage du label selon la date de la data
+    for (let i = 0; i < 12; i++) {
+      this.labels.push(this.datasShop[i].dataDate);
+    }
 
     this.datasets = [
       {
         label: 'Nombre de commandes',
-        data: [80, 60, 25, 5, 40, 10, 60, 50, 30, 35, 50, 110],
+        data: [],
         backgroundColor: '#ffb976',
         borderColor: '#ffb976',
         pointBackgroundColor: '#eefbfb',
@@ -52,6 +54,13 @@ export class GraphicCardComponent implements OnInit {
         fill: 'origin',
       },
     ];
+
+    //Ajout des datas selon le type
+    for (let i = 0; i < this.datasShop.length; i++) {
+      if (this.datasShop[i].type === 'commande') {
+        this.datasets[0].data.push(this.datasShop[i].dataValue);
+      }
+    }
 
     this.options = {
       responsive: true,

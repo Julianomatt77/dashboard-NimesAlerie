@@ -18,8 +18,8 @@ export class ChartBarCardComponent implements OnInit {
   datasets!: ChartDataset[];
   options!: ChartOptions;
 
-  dataVisite!: Data[];
-  dataPanier!: Data[];
+  // dataVisite!: Data[];
+  // dataPanier!: Data[];
   datasShop!: Data[];
 
   constructor(
