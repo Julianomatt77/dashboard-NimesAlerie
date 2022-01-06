@@ -1,35 +1,19 @@
-import { Component, ViewChild, OnInit, OnChanges } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import {
-  ChartConfiguration,
-  ChartOptions,
-  ChartType,
-  ChartDataset,
-} from 'chart.js';
-import { Data } from 'src/app/models/Data';
-import { DatasService } from 'src/app/services/datas/datas.service';
-import { BaseChartDirective } from 'ng2-charts';
-
-@Component({
-  selector: 'app-graphic-card',
-  templateUrl: './graphic-card.component.html',
-  styleUrls: ['./graphic-card.component.css'],
-})
-export class GraphicCardComponent implements OnInit {
-  @ViewChild(BaseChartDirective) baseChart?: BaseChartDirective;
-  datasShop!: Data[];
+datasShop!: Data[];
 
   chartDataConfiguration!: ChartConfiguration;
 
   constructor(
     private datasService: DatasService,
     private route: ActivatedRoute
-  ) {}
+  ) {
+  }
 
   ngOnInit(): void {
+
+    // @ViewChild(BaseChartDirective) chart?: BaseChartDirective;
     this.datasShop = this.datasService.datasShop;
 
-    const options: ChartOptions = {
+    const options = {
       responsive: true,
       plugins: {
         legend: {
@@ -77,7 +61,7 @@ export class GraphicCardComponent implements OnInit {
       labels.push(this.datasService.datasShop[i].dataDate);
     }
 
-    const datasets: ChartDataset = {
+    const datasets = {
       label: 'Nombre de commandes',
       data: [],
       backgroundColor: '#ffb976',
@@ -98,29 +82,43 @@ export class GraphicCardComponent implements OnInit {
 
     const chartData = {
       datasets: [datasets],
-      labels: labels,
+      labels: labels
     };
 
     this.chartDataConfiguration = {
       data: chartData,
       type: 'line',
-      options,
+      options
     };
+
+  }
+
+  /**
+   * Lifecycle Method
+   */
+  ngOnChanges() {
+    this.chartDataConfiguration.data.datasets.forEach((dataset: ChartDataset, index) => {
+      dataset.backgroundColor = '#ffb976';
+        dataset.borderColor = '#ffb976';
+        dataset.backgroundColor = '#ffb976';
+        dataset.borderColor = '#ffb976';
+        dataset.pointBackgroundColor = '#eefbfb';
+        dataset.pointBorderColor = '#ffb976';
+        dataset.pointHoverBackgroundColor = '#ffb976';
+        dataset.pointHoverBorderColor = '#ffb976';
+    });
   }
 
   // $blueDark: #18558f;
   // $blueLight: #eefbfb;
   // $orangeCustom: #ffb976;
 
-  // randomize(): void {
-  //   this.chartDataConfiguration.data.datasets[0].data = [];
-  //   for (let i = 0; i < this.datasShop.length; i++) {
-  //     if (this.datasShop[i].type === 'commande') {
-  //       this.chartDataConfiguration.data.datasets[0].data.push(
-  //         this.datasService.generateNumber(i)
-  //       );
-  //     }
-  //   }
-  //   this.baseChart?.update();
-  // }
-}
+  randomize(): void {
+    this.chartDataConfiguration.data.datasets[0].data = [];
+    for (let i = 0; i < this.datasShop.length; i++) {
+      if (this.datasShop[i].type === 'commande') {
+        this.chartDataConfiguration.data.datasets[0].data.push(this.datasService.generateNumber(i));
+      }
+    }
+    console.log(this.chartDataConfiguration.data.datasets[0].data);
+  }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ChartOptions, ChartType, ChartDataset } from 'chart.js';
+import { ChartOptions, ChartType, ChartData, ChartDataset } from 'chart.js';
 import { Data } from 'src/app/models/Data';
 import { DatasService } from 'src/app/services/datas/datas.service';
 // import { BaseChartDirective } from 'ng2-charts';
@@ -18,8 +18,6 @@ export class ChartBarCardComponent implements OnInit {
   datasets!: ChartDataset[];
   options!: ChartOptions;
 
-  // dataVisite!: Data[];
-  // dataPanier!: Data[];
   datasShop!: Data[];
 
   constructor(
@@ -38,8 +36,7 @@ export class ChartBarCardComponent implements OnInit {
     //   });
 
     this.type = 'bar';
-    // this.dataVisite = this.datasService.datasVisite;
-    // this.dataPanier = this.datasService.datasPanier;
+
     this.datasShop = this.datasService.datasShop;
 
     this.labels = [];
@@ -49,28 +46,10 @@ export class ChartBarCardComponent implements OnInit {
       this.labels.push(this.datasShop[i].dataDate);
     }
 
-    // this.datasets.data = [];
-
     this.datasets = [
       {
         label: 'Nombre de visites',
         data: [],
-        // this.data.push(this.datasShop[i].dataValue),
-
-        // data: [
-        //   this.dataVisite[0].dataValue,
-        //   this.dataVisite[1].dataValue,
-        //   this.dataVisite[2].dataValue,
-        //   this.dataVisite[3].dataValue,
-        //   this.dataVisite[4].dataValue,
-        //   this.dataVisite[5].dataValue,
-        //   this.dataVisite[6].dataValue,
-        //   this.dataVisite[7].dataValue,
-        //   this.dataVisite[8].dataValue,
-        //   this.dataVisite[9].dataValue,
-        //   this.dataVisite[10].dataValue,
-        //   this.dataVisite[11].dataValue,
-        // ],
         backgroundColor: '#ffb976',
         borderColor: '#ffb976',
         pointBackgroundColor: '#eefbfb',
@@ -81,20 +60,7 @@ export class ChartBarCardComponent implements OnInit {
       },
       {
         label: 'Nombre de paniers',
-        data: [
-          // this.dataPanier[0].dataValue,
-          // this.dataPanier[1].dataValue,
-          // this.dataPanier[2].dataValue,
-          // this.dataPanier[3].dataValue,
-          // this.dataPanier[4].dataValue,
-          // this.dataPanier[5].dataValue,
-          // this.dataPanier[6].dataValue,
-          // this.dataPanier[7].dataValue,
-          // this.dataPanier[8].dataValue,
-          // this.dataPanier[9].dataValue,
-          // this.dataPanier[10].dataValue,
-          // this.dataPanier[11].dataValue,
-        ],
+        data: [],
         backgroundColor: '#eefbfb',
         borderColor: '#ffb976',
         pointBackgroundColor: '#eefbfb',
@@ -209,7 +175,7 @@ export class ChartBarCardComponent implements OnInit {
 
   // public randomize(): void {
   //   // Only Change 3 values
-  //   this.barChartData.datasets[0].data = [
+  //   this.datasShop.datasets[0].data = [
   //     Math.round(Math.random() * 100),
   //     59,
   //     80,

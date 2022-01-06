@@ -1,17 +1,8 @@
-<div id="datePicker">
-  <mat-form-field appearance="outline">
-    <mat-label>période d'activité</mat-label>
-
-    <mat-date-range-input [rangePicker]="rangePicker">
-      <input matStartDate placeholder="Start date" />
-      <input matEndDate placeholder="End date" />
-    </mat-date-range-input>
-
-    <mat-datepicker-toggle
-      matSuffix
-      [for]="rangePicker"
-    ></mat-datepicker-toggle>
-
-    <mat-date-range-picker #rangePicker></mat-date-range-picker>
-  </mat-form-field>
+<div class="text-center my-3">
+  <h4 class="darkBlue mb-3">Période d'activité</h4>
+  <input class="mx-4 bg-light darkBlue" type="date" />
+  <input class="mx-4 bg-light darkBlue" type="date" />
+  <button class="btn bg-dark orangeFont" (click)="updateData()">
+    Mettre à jour
+  </button>
 </div>

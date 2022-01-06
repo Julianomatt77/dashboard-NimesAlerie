@@ -1,8 +1,13 @@
 <div class="container">
   <div class="row">
-    <app-data-card class="col-lg-4 col-sm-6"></app-data-card>
-    <app-data-card class="col-lg-4 col-sm-6"></app-data-card>
-    <app-data-card class="col-lg-4 col-sm-6"></app-data-card>
+    <!-- <div app-data-card *ngFor="let dataType of dataTypes" [data]=""></div> -->
+
+    <app-data-card
+      *ngFor="let user of datasCard"
+      [type]="user.type"
+      [data]="user.dataValue"
+      class="col-lg-4 col-sm-6"
+    ></app-data-card>
 
     <app-chart-bar-card class="col-lg-6"></app-chart-bar-card>
     <app-pie-chart-card class="col-lg-4"></app-pie-chart-card>
