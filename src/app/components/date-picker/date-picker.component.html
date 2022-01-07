@@ -1,7 +1,19 @@
 <div class="text-center my-3">
   <h4 class="darkBlue mb-3">Période d'activité</h4>
-  <input class="mx-4 bg-light darkBlue" type="date" />
-  <input class="mx-4 bg-light darkBlue" type="date" />
+  <input
+    class="mx-4 bg-light darkBlue"
+    id="start"
+    name="dateStart"
+    value="2021-01-07"
+    type="date"
+  />
+  <input
+    class="mx-4 bg-light darkBlue"
+    id="start"
+    name="dateEnd"
+    value="2022-01-07"
+    type="date"
+  />
   <button class="btn bg-dark orangeFont" (click)="updateData()">
     Mettre à jour
   </button>

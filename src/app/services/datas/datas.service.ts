@@ -6,107 +6,165 @@ import { Data } from 'src/app/models/Data';
   providedIn: 'root',
 })
 export class DatasService {
-  datasShop!: Data[];
-  // datasShop!: BehaviorSubject<Data>;
-
+  datasShop!: BehaviorSubject<Data[]>;
   dataCard!: BehaviorSubject<Data>;
+  visites!: number;
+  visitesTotal!: number;
+  commandes!: number;
+  commandesTotal!: number;
+  paniers!: number;
+  paniersTotal!: number;
 
   constructor() {
-    // Cards datas
-    const dataCard = new Data(
-      36,
-      'commandeNbr',
-      this.generateNumber(1),
-      'date'
-    );
-    this.dataCard = new BehaviorSubject<Data>(dataCard);
+    this.datasShop = new BehaviorSubject<Data[]>(this.createDatas());
+  }
 
-    //************************************************************************************ */
+  generateNumber(min: number, max: number): number {
+    return Math.floor(Math.random() * (max - min + 1));
+  }
 
-    this.datasShop = [];
-    // const datasShops = [];
-    // for (let i = 0; i < 12; i++) {
-    //   datasShops.push(new Data(i, 'visite', this.generateNumber(i), 'date i'));
-    // }
+  createDatas(): Data[] {
+    const datasShop = [];
 
-    // création du tableau par type de données
+    this.visitesTotal = this.generateNumber(0, 1500);
+    this.visites = this.visitesTotal;
     for (let i = 0; i < 12; i++) {
-      this.datasShop.push(
-        new Data(i, 'visite', this.generateNumber(i), 'date i')
+      datasShop.push(
+        new Data(
+          i,
+          'visite',
+          this.generateNumber(1, this.visites),
+          'date i',
+          'Nombre de visites'
+        )
       );
+      // this.visites = this.visites - datasShop[i].dataValue;
     }
 
+    this.paniersTotal = this.generateNumber(1, this.visitesTotal);
+    this.paniers = this.paniersTotal;
     for (let i = 12; i < 24; i++) {
-      this.datasShop.push(
-        new Data(i, 'commande', this.generateNumber(i), 'date i')
+      datasShop.push(
+        new Data(
+          i,
+          'panier',
+          this.generateNumber(1, this.paniers),
+          'date i',
+          'Nombre de paniers'
+        )
       );
+      // this.paniers = this.paniers - datasShop[i].dataValue;
     }
 
+    this.commandesTotal = this.generateNumber(0, this.paniersTotal);
+    this.commandes = this.commandesTotal;
     for (let i = 24; i < 36; i++) {
-      this.datasShop.push(
-        new Data(i, 'panier', this.generateNumber(i), 'date i')
+      datasShop.push(
+        new Data(
+          i,
+          'commande',
+          this.generateNumber(0, this.commandes),
+          'date i',
+          'Nombre de commandes'
+        )
       );
+      // this.commandes = this.commandes - datasShop[i].dataValue;
     }
 
-    this.datasShop.push(
-      new Data(36, 'commandeNbr', this.generateNumber(36), 'date')
+    datasShop.push(
+      new Data(
+        36,
+        'commandeNbr',
+        this.commandesTotal,
+        'date',
+        'Nombre de commandes'
+      )
     );
-    this.datasShop.push(
-      new Data(37, 'newCustomers', this.generateNumber(37), 'date')
+    datasShop.push(
+      new Data(
+        37,
+        'newCustomers',
+        this.generateNumber(1, this.commandesTotal),
+        'date',
+        'Nombre de nouveaux clients'
+      )
     );
-    this.datasShop.push(
-      new Data(38, 'newCarts', this.generateNumber(38), 'date')
+    datasShop.push(
+      new Data(38, 'cartsNbr', this.paniersTotal, 'date', 'Nombre de paniers')
     );
-    this.datasShop.push(
-      new Data(39, 'totalSales', this.generateNumber(39), 'date')
+    datasShop.push(
+      new Data(
+        39,
+        'totalSales',
+        this.generateNumber(1, 1000),
+        'date',
+        'Montant total des ventes'
+      )
     );
-    this.datasShop.push(
-      new Data(40, 'avgValue', this.generateNumber(40), 'date')
+    datasShop.push(
+      new Data(
+        40,
+        'avgValue',
+        Math.round(datasShop[39].dataValue / 12),
+        'date',
+        'Panier moyen'
+      )
     );
+    datasShop.push(
+      new Data(
+        41,
+        'recurrence',
+        Math.round(
+          ((this.commandesTotal - datasShop[37].dataValue) /
+            this.commandesTotal) *
+            100
+        ),
+        'date',
+        'Récurrence de commandes client'
+      )
+    );
+    datasShop.push(
+      new Data(
+        42,
+        'discardedCart',
+        this.paniersTotal - this.commandesTotal,
+        'date',
+        'Nombre de paniers annulés'
+      )
+    );
+    datasShop.push(
+      new Data(
+        43,
+        'convertedVisites',
+        Math.round((this.paniersTotal / this.visitesTotal) * 100),
+        'date',
+        'Taux de visites converties en création de panier'
+      )
+    );
+    datasShop.push(
+      new Data(
+        44,
+        'convertedOrders',
+        Math.round((this.commandesTotal / this.paniersTotal) * 100),
+        'date',
+        'Taux de paniers converties en commande'
+      )
+    );
+    // console.log(
+    //   'visites: ' +
+    //     this.visitesTotal +
+    //     ' paniers:' +
+    //     this.paniersTotal +
+    //     ' commandes:' +
+    //     this.commandesTotal
+    // );
+    // console.log(datasShop);
 
-    // this.datasShop = new BehaviorSubject<Data>(datasShop);
-
-    console.log(this.datasShop);
-    // console.log(datasShops);
+    return datasShop;
   }
 
-  generateNumber(i: number): number {
-    return Math.floor(Math.random() * (i < 2 ? 100 : 500) + 1);
-  }
-
-  // randomize(): void {
-  //   this.datasShop = [];
-  //   for (let i = 0; i < 12; i++) {
-  //     this.datasShop.push(
-  //       new Data(i, 'visite', this.generateNumber(i), 'date i')
-  //     );
-  //   }
-  //   for (let i = 12; i < 24; i++) {
-  //     this.datasShop.push(
-  //       new Data(i, 'commande', this.generateNumber(i), 'date i')
-  //     );
-  //   }
-  //   for (let i = 24; i < 36; i++) {
-  //     this.datasShop.push(
-  //       new Data(i, 'panier', this.generateNumber(i), 'date i')
-  //     );
-  //   }
-  //   this.datasShop.push(
-  //     new Data(36, 'commandeNbr', this.generateNumber(25), 'date')
-  //   );
-  //   this.datasShop.push(
-  //     new Data(37, 'newCustomers', this.generateNumber(26), 'date')
-  //   );
-  //   this.datasShop.push(
-  //     new Data(38, 'newCarts', this.generateNumber(27), 'date')
-  //   );
-  //   // this.baseChart?.update();
-  // }
-
-  /***************************************************/
-  randomizeCard(): void {
-    const dataCard = this.dataCard.getValue();
-    dataCard.dataValue = this.generateNumber(1);
-    this.dataCard.next(dataCard);
+  randomize(): void {
+    this.datasShop.next(this.createDatas());
+    // console.log(this.datasShop.getValue());
   }
 }

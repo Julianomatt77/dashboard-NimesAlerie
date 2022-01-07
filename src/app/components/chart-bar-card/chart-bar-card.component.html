@@ -4,17 +4,14 @@
       <canvas
         baseChart
         height="200"
-        [datasets]="datasets"
-        [labels]="labels"
-        [type]="type"
-        [options]="options"
+        [datasets]="chartDataConfiguration.data.datasets"
+        [options]="chartDataConfiguration.options"
+        [labels]="chartDataConfiguration.data.labels"
+        [type]="chartDataConfiguration.type"
         [legend]="true"
         class="bg-dark px-3 py-3"
       >
       </canvas>
     </div>
-    <!-- <button mat-button mat-raised-button color="primary" (click)="randomize()">
-      Update
-    </button> -->
   </div>
 </div>

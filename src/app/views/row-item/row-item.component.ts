@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { Data } from 'src/app/models/Data';
 import { DatasService } from 'src/app/services/datas/datas.service';
 
@@ -8,23 +9,40 @@ import { DatasService } from 'src/app/services/datas/datas.service';
   styleUrls: ['./row-item.component.css'],
 })
 export class RowItemComponent implements OnInit {
-  // datasShop!: Data[];
-  // dataCard!: Data;
-
   datasCard!: Data[];
+  dataSub!: Subscription;
+  type!: string;
+
   constructor(private datasService: DatasService) {}
 
   ngOnInit(): void {
-    this.datasCard = [];
-    for (let i = 0; i < this.datasService.datasShop.length; i++) {
-      if (this.datasService.datasShop[i].id >= 36) {
-        this.datasCard.push(this.datasService.datasShop[i]);
+    this.dataSub = this.datasService.datasShop.subscribe((newData: Data[]) => {
+      this.datasCard = [];
+      for (let i = 0; i < newData.length; i++) {
+        if (
+          newData[i].type === 'commandeNbr' ||
+          newData[i].type === 'newCustomers' ||
+          newData[i].type === 'cartsNbr' ||
+          newData[i].type === 'totalSales' ||
+          newData[i].type === 'avgValue' ||
+          newData[i].type === 'recurrence' ||
+          newData[i].type === 'convertedVisites' ||
+          newData[i].type === 'convertedOrders'
+        ) {
+          this.datasCard.push(newData[i]);
+        }
       }
-      // this.datasService.dataCard.subscribe((dataCard: Data) => {
-      //   this.dataCard = dataCard;
-      //   this.data = this.dataCard.dataValue;
-      // });
-    }
-    console.log(this.datasCard);
+    });
+
+    // for (let i = 0; i < this.datasCard.length; i++) {
+
+    //   if (this.datasCard[i].type === 'commandeNbr') {
+    //     this.datasCard[i].type = 'Nombre de commandes';
+    //   }
+    // }
+  }
+
+  ngOnDestroy(): void {
+    this.dataSub.unsubscribe();
   }
 }

@@ -5,14 +5,22 @@ export class Data {
   private _type: string;
   private _dataValue: number;
   private _dataDate: string;
+  private _label: string;
 
-  constructor(id: number, type: string, dataValue: number, dataDate: string) {
+  constructor(
+    id: number,
+    type: string,
+    dataValue: number,
+    dataDate: string,
+    label: string
+  ) {
     //attributs qu'on veut conserver
     //private : élément accessible seulement dans l'objet
     this._id = id;
     this._type = type;
     this._dataValue = dataValue;
     this._dataDate = dataDate;
+    this._label = label;
   }
 
   /**
@@ -47,6 +55,10 @@ export class Data {
     return this._dataDate;
   }
 
+  public get label(): string {
+    return this._label;
+  }
+
   /**
    * Setter id
    * @param {number} value
@@ -77,5 +89,8 @@ export class Data {
    */
   public set dataDate(value: string) {
     this._dataDate = value;
+  }
+  public set label(value: string) {
+    this._label = value;
   }
 }

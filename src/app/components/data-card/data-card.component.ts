@@ -10,8 +10,25 @@ import { DatasService } from 'src/app/services/datas/datas.service';
 export class DataCardComponent implements OnInit {
   @Input() data!: number;
   @Input() type!: string;
+  @Input() label!: string;
+  symbol!: string;
 
   constructor(private datasService: DatasService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    switch (this.type) {
+      case 'recurrence':
+      case 'convertedVisites':
+      case 'convertedOrders':
+        this.symbol = '%';
+        break;
+
+      case 'totalSales':
+      case 'avgValue':
+        this.symbol = '€';
+        break;
+      default:
+        this.symbol = '';
+    }
+  }
 }

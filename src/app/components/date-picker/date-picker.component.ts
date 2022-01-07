@@ -13,7 +13,7 @@ export class DatePickerComponent implements OnInit {
   ngOnInit(): void {}
 
   updateData(): void {
-    this.datasService.randomizeCard();
+    this.datasService.randomize();
     console.log(this.datasService.datasShop);
   }
 }

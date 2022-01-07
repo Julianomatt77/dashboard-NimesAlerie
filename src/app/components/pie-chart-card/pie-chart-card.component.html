@@ -3,11 +3,10 @@
     <div class="my-4">
       <canvas
         baseChart
-        [datasets]="datasets"
-        [labels]="labels"
-        [type]="type"
-        [options]="options"
-        [legend]="true"
+        [datasets]="chartDataConfiguration.data.datasets"
+        [options]="chartDataConfiguration.options"
+        [labels]="chartDataConfiguration.data.labels"
+        [type]="chartDataConfiguration.type"
         class="darkBlue px-3 py-3"
       >
       </canvas>

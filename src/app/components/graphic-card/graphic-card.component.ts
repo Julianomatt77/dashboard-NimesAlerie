@@ -9,6 +9,7 @@ import {
 import { Data } from 'src/app/models/Data';
 import { DatasService } from 'src/app/services/datas/datas.service';
 import { BaseChartDirective } from 'ng2-charts';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-graphic-card',
@@ -17,110 +18,100 @@ import { BaseChartDirective } from 'ng2-charts';
 })
 export class GraphicCardComponent implements OnInit {
   @ViewChild(BaseChartDirective) baseChart?: BaseChartDirective;
-  datasShop!: Data[];
 
+  dataSub!: Subscription;
   chartDataConfiguration!: ChartConfiguration;
 
-  constructor(
-    private datasService: DatasService,
-    private route: ActivatedRoute
-  ) {}
+  constructor(private datasService: DatasService) {}
 
   ngOnInit(): void {
-    this.datasShop = this.datasService.datasShop;
-
-    const options: ChartOptions = {
-      responsive: true,
-      plugins: {
-        legend: {
-          position: 'top',
-          display: true,
-          labels: {
-            color: '#eefbfb',
+    this.dataSub = this.datasService.datasShop.subscribe((newData: Data[]) => {
+      const options: ChartOptions = {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'top',
+            display: true,
+            labels: {
+              color: '#eefbfb',
+            },
           },
-        },
-        title: {
-          display: false,
-          text: 'Valeur du panier moyen',
-        },
-      },
-      scales: {
-        x: {
-          grid: {
+          title: {
             display: false,
-            // color: '#eefbfb',
-          },
-          ticks: {
-            color: '#eefbfb',
+            text: 'Valeur du panier moyen',
           },
         },
-        y: {
-          position: 'left',
-          grid: {
-            color: '#eefbfb',
+        scales: {
+          x: {
+            grid: {
+              display: false,
+              // color: '#eefbfb',
+            },
+            ticks: {
+              color: '#eefbfb',
+            },
           },
-          ticks: {
-            color: '#eefbfb',
+          y: {
+            position: 'left',
+            grid: {
+              color: '#eefbfb',
+            },
+            ticks: {
+              color: '#eefbfb',
+            },
           },
         },
-      },
-      elements: {
-        line: {
-          tension: 0.5,
+        elements: {
+          line: {
+            tension: 0.5,
+          },
         },
-      },
-    };
+      };
 
-    //LABELS
-    const labels = [];
-    for (let i = 0; i < 12; i++) {
-      labels.push(this.datasService.datasShop[i].dataDate);
-    }
-
-    const datasets: ChartDataset = {
-      label: 'Nombre de commandes',
-      data: [],
-      backgroundColor: '#ffb976',
-      borderColor: '#ffb976',
-      pointBackgroundColor: '#eefbfb',
-      pointBorderColor: '#ffb976',
-      pointHoverBackgroundColor: '#ffb976',
-      pointHoverBorderColor: '#ffb976',
-      fill: 'origin',
-    };
-
-    //Ajout des datas selon le type
-    for (let i = 0; i < this.datasShop.length; i++) {
-      if (this.datasShop[i].type === 'commande') {
-        datasets.data.push(this.datasShop[i].dataValue);
+      //LABELS
+      const labels = [];
+      for (let i = 0; i < 12; i++) {
+        labels.push(newData[i].dataDate);
       }
-    }
 
-    const chartData = {
-      datasets: [datasets],
-      labels: labels,
-    };
+      const datasets: ChartDataset = {
+        label: 'Nombre de commandes',
+        data: [],
+        backgroundColor: '#ffb976',
+        borderColor: '#ffb976',
+        pointBackgroundColor: '#eefbfb',
+        pointBorderColor: '#ffb976',
+        pointHoverBackgroundColor: '#ffb976',
+        pointHoverBorderColor: '#ffb976',
+        fill: 'origin',
+      };
 
-    this.chartDataConfiguration = {
-      data: chartData,
-      type: 'line',
-      options,
-    };
+      //Ajout des datas selon le type
+      for (let i = 0; i < newData.length; i++) {
+        if (newData[i].type === 'commande') {
+          datasets.data.push(newData[i].dataValue);
+        }
+      }
+
+      const chartData = {
+        datasets: [datasets],
+        labels: labels,
+      };
+
+      this.chartDataConfiguration = {
+        data: chartData,
+        type: 'line',
+        options,
+      };
+      this.baseChart?.update();
+    });
   }
 
   // $blueDark: #18558f;
   // $blueLight: #eefbfb;
   // $orangeCustom: #ffb976;
 
-  // randomize(): void {
-  //   this.chartDataConfiguration.data.datasets[0].data = [];
-  //   for (let i = 0; i < this.datasShop.length; i++) {
-  //     if (this.datasShop[i].type === 'commande') {
-  //       this.chartDataConfiguration.data.datasets[0].data.push(
-  //         this.datasService.generateNumber(i)
-  //       );
-  //     }
-  //   }
-  //   this.baseChart?.update();
-  // }
+  ngOnDestroy(): void {
+    this.dataSub.unsubscribe();
+  }
 }
