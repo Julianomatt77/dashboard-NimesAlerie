@@ -80,6 +80,7 @@ export class DatasService {
         'Nombre de commandes'
       )
     );
+
     datasShop.push(
       new Data(
         37,
@@ -89,9 +90,11 @@ export class DatasService {
         'Nombre de nouveaux clients'
       )
     );
+
     datasShop.push(
       new Data(38, 'cartsNbr', this.paniersTotal, 'date', 'Nombre de paniers')
     );
+
     datasShop.push(
       new Data(
         39,
@@ -101,6 +104,7 @@ export class DatasService {
         'Montant total des ventes'
       )
     );
+
     datasShop.push(
       new Data(
         40,
@@ -110,6 +114,7 @@ export class DatasService {
         'Panier moyen'
       )
     );
+
     datasShop.push(
       new Data(
         41,
@@ -123,6 +128,7 @@ export class DatasService {
         'Récurrence de commandes client'
       )
     );
+
     datasShop.push(
       new Data(
         42,
@@ -132,6 +138,7 @@ export class DatasService {
         'Nombre de paniers annulés'
       )
     );
+
     datasShop.push(
       new Data(
         43,
@@ -141,6 +148,7 @@ export class DatasService {
         'Taux de visites converties en création de panier'
       )
     );
+
     datasShop.push(
       new Data(
         44,
@@ -150,15 +158,6 @@ export class DatasService {
         'Taux de paniers converties en commande'
       )
     );
-    // console.log(
-    //   'visites: ' +
-    //     this.visitesTotal +
-    //     ' paniers:' +
-    //     this.paniersTotal +
-    //     ' commandes:' +
-    //     this.commandesTotal
-    // );
-    // console.log(datasShop);
 
     return datasShop;
   }

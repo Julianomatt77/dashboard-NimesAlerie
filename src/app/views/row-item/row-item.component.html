@@ -16,5 +16,30 @@
 
       <app-graphic-card class="col-12"></app-graphic-card>
     </div>
+
+    <!-- Tableau meilleures ventes -->
+    <div class="col-12 mt-5">
+      <h4 class="text-center" style="color: #18558f">Meilleures ventes</h4>
+      <table class="table">
+        <thead class="">
+          <tr>
+            <th scope="col" style="color: #18558f">Produit</th>
+            <th scope="col" style="color: #18558f">Description</th>
+            <th scope="col" style="color: #18558f">Nombre de Ventes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            *ngFor="
+              let product of products | slice: 0:10 | orderBy: 'desc':'vente'
+            "
+          >
+            <th scope="row" style="color: #18558f">{{ product.name }}</th>
+            <td style="color: #18558f">{{ product.description }}</td>
+            <td style="color: #18558f">{{ product.vente }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>

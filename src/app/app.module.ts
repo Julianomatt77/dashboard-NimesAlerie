@@ -22,6 +22,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { OrderByPipe } from './pipes/order-by.pipe';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     PieChartCardComponent,
     ErrorsViewComponent,
     ErrorComponent,
+    OrderByPipe,
   ],
   imports: [
     BrowserModule,

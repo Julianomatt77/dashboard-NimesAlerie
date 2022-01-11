@@ -22,7 +22,6 @@
 
 * {
   font-family: "Roboto", sans-serif;
-  background: #eefbfb;
 }
 
 a {
@@ -64,4 +63,10 @@ li {
 * {
   background: #18558f !important;
   color: #ffb976 !important;
+}
+
+@media screen and (min-width: 990px) and (max-width: 1400px) {
+  h3 {
+    font-size: 1rem !important;
+  }
 }
