@@ -20,7 +20,9 @@ export class RowItemComponent implements OnInit {
     vente: number;
   }>;
 
-  constructor(private datasService: DatasService) {}
+  constructor(
+    private datasService: DatasService // private orderByPipe: OrderByPipe
+  ) {}
 
   ngOnInit(): void {
     this.dataSub = this.datasService.datasShop.subscribe((newData: Data[]) => {
@@ -109,8 +111,15 @@ export class RowItemComponent implements OnInit {
         vente: 450,
       },
     ];
+
+    // const aaaa = this.orderByPipe.transform(this.products, 'desc', 'vente');
+
+    // console.log(sortedArr);
   }
 
+  // sortedArr(): void {
+  //   this.products = this.orderByPipe.transform(this.products, 'asc', 'vente');
+  // }
   ngOnDestroy(): void {
     this.dataSub.unsubscribe();
   }

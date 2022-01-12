@@ -29,11 +29,14 @@
           </tr>
         </thead>
         <tbody>
-          <tr
+          <!-- <tr
             *ngFor="
-              let product of products | slice: 0:10 | orderBy: 'desc':'vente'
+              let product of products  | orderBy: 'desc':'vente'
             "
-          >
+          > -->
+
+          <!-- Order asc  + slice 10-->
+          <tr *ngFor="let product of products | orderBy: 'vente' | slice: 0:10">
             <th scope="row" style="color: #18558f">{{ product.name }}</th>
             <td style="color: #18558f">{{ product.description }}</td>
             <td style="color: #18558f">{{ product.vente }}</td>
