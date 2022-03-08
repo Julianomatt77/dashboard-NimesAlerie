@@ -1,0 +1,75 @@
+@import "../style.scss";
+
+/********************************/
+/**Header*********/
+/********************************/
+header {
+  height: $headerHeight;
+  position: fixed;
+  z-index: 150 !important;
+  width: 100%;
+  top: 0px;
+}
+
+#headerRow {
+  height: 100%;
+  background: $greenLight;
+}
+#logo {
+  max-width: 100%;
+  max-height: 50px;
+}
+
+#search {
+  width: 70% !important;
+  background: $greenLight;
+  border: 2px solid $greenDark;
+  border-radius: 10px 0px 0px 10px;
+
+  /* For placeholder: */
+  color: $greenDark;
+  opacity: 1 !important; /*For Firefox*/
+  text-align: center;
+  font-size: 1rem;
+}
+#search-button {
+  background: $greenDark;
+  padding: 5px;
+  border: 1px solid $greenDark;
+  height: 100%;
+  border-radius: 0px 10px 10px 0px;
+}
+.searchIcon {
+  color: $yellowCustom;
+}
+
+.icons {
+  :hover {
+    font-size: 2.5rem;
+  }
+}
+.accountIcon,
+.cartIcon,
+.homeIcon {
+  font-size: 1.5rem;
+  color: $greenDark;
+}
+/*JS class modifier*/
+
+.onScroll_header {
+  background: $greenDark !important;
+  color: $yellowCustom !important;
+  transition: 0.5s;
+}
+.onScroll_header_search {
+  background: $greenDark !important;
+  color: $yellowCustom !important;
+  transition: 0.5s;
+  border: 2px solid $yellowCustom !important;
+}
+.onScroll_header_border_left {
+  border-left: none !important;
+}
+.onScroll_header_border_right {
+  border-right: none !important;
+}

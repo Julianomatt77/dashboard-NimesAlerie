@@ -1,0 +1,492 @@
+/**********************************/
+/*********General*********/
+/**********************************/
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap");
+
+$greenDark: #18558f;
+$greenLight: #eefbfb;
+$yellowCustom: #ffb976;
+
+$headerHeight: 75px;
+$navHeight: 70px;
+$carouselPosition: 145px;
+
+.darkGreen {
+  color: $greenDark !important;
+}
+
+.lightGreen {
+  color: $greenLight !important;
+}
+
+.yellowFont {
+  color: $yellowCustom !important;
+}
+
+.bg-dark {
+  background: $greenDark !important;
+}
+
+.bg-light {
+  background: $greenLight !important;
+}
+
+.bg-orange {
+  background: #ffb976 !important;
+}
+
+p {
+  font-size: 1em;
+  padding: 0px 20px;
+  text-align: justify;
+  color: $greenDark;
+}
+h1,
+h2 {
+  font-family: "Dancing Script", cursive;
+  font-weight: bold;
+  color: $greenDark;
+  text-align: center;
+  padding: 5px 0px;
+  font-size: 2em;
+}
+h3 {
+  color: $greenDark;
+  font-weight: bold;
+  font-size: 1.8em;
+}
+h4 {
+  color: $greenDark;
+  font-weight: bold;
+  font-size: 1.5em;
+}
+h5 {
+  color: $greenDark;
+  font-weight: bold;
+  font-size: 1.3em;
+}
+* {
+  font-family: "Roboto", sans-serif;
+}
+a {
+  text-decoration: none;
+}
+.font1-5 {
+  font-size: 1.5em;
+}
+
+$form-select-color: $yellowCustom !important;
+
+/***********************************/
+/*Carousel ******************/
+/*************************************/
+#carousel {
+  margin-top: $carouselPosition;
+}
+.carousel-item {
+  img {
+    height: 400px;
+  }
+  h2 {
+    margin-top: -300px;
+    margin-bottom: 300px;
+    margin-left: 100px;
+    width: 300px;
+  }
+}
+/***********************************/
+/*Top Categories ******************/
+/*************************************/
+#catégories {
+  img:hover {
+    transform: rotateY(180deg) translateX(-10px) translateY(25px);
+  }
+}
+
+/************************************/
+/**Fidelity Program ******************/
+/**********************************/
+#loyaltyProgramme {
+  margin: 10px 0px;
+}
+
+/************************************/
+/**Qui sommes nous ******************/
+/************************************/
+#owner {
+  float: left;
+  margin-right: 15px;
+}
+
+/************************************/
+/**Actualités ******************/
+/************************************/
+.date {
+  display: block;
+  background-color: $greenDark;
+  border: 1px solid $greenDark;
+  color: $yellowCustom;
+  width: 70px;
+  border-radius: 10px;
+  margin-top: -20px;
+  margin-left: 40px;
+  position: absolute;
+}
+#carouselIndicators {
+  margin-bottom: 160px !important;
+}
+
+/************************************/
+/*Customer review ******************/
+/************************************/
+
+#customerReview {
+  background-color: $greenDark;
+  h2 {
+    color: $yellowCustom;
+  }
+}
+
+/************************************/
+/* Shop bouton */
+/**********************************/
+
+$thick: 3px;
+$pad: 0.7em;
+$extra: calc(#{$pad} * 1.2);
+
+.shop-button {
+  //background: $greenDark !important;
+
+  a {
+    color: $greenDark !important;
+    padding: $pad $extra;
+    display: inline-block;
+    border: $thick solid transparent;
+    position: relative;
+    font-size: 1.5em;
+    cursor: pointer;
+    letter-spacing: 0.07em;
+
+    .text {
+      // padding: 0 0.3em;
+      font-family: "Dancing Script", cursive;
+      transform: translate3d(0, $pad, 0);
+      display: block;
+      transition: transform 0.4s cubic-bezier(0.2, 0, 0, 1) 0.4s;
+    }
+
+    &:after {
+      position: absolute;
+      content: "";
+      bottom: -$thick;
+      left: $extra;
+      right: $extra;
+      height: $thick;
+      background: $greenDark !important;
+      // z-index: -1;
+      transition: transform 0.8s cubic-bezier(1, 0, 0.37, 1) 0.2s,
+        right 0.2s cubic-bezier(0.04, 0.48, 0, 1) 0.6s,
+        left 0.4s cubic-bezier(0.04, 0.48, 0, 1) 0.6s;
+      transform-origin: left;
+    }
+  }
+
+  .line {
+    position: absolute;
+    background: $greenDark !important;
+
+    &.-right,
+    &.-left {
+      width: $thick;
+      bottom: -$thick;
+      top: -$thick;
+      transform: scale3d(1, 0, 1);
+    }
+
+    &.-top,
+    &.-bottom {
+      height: $thick;
+      left: -$thick;
+      right: -$thick;
+      transform: scale3d(0, 1, 1);
+    }
+
+    &.-right {
+      right: -$thick;
+      transition: transform 0.1s cubic-bezier(1, 0, 0.65, 1.01) 0.23s;
+      transform-origin: top;
+    }
+
+    &.-top {
+      top: -$thick;
+      transition: transform 0.08s linear 0.43s;
+      transform-origin: left;
+    }
+
+    &.-left {
+      left: -$thick;
+      transition: transform 0.08s linear 0.51s;
+      transform-origin: bottom;
+    }
+
+    &.-bottom {
+      bottom: -$thick;
+      transition: transform 0.3s cubic-bezier(1, 0, 0.65, 1.01);
+      transform-origin: right;
+    }
+  }
+
+  a:hover,
+  a:active {
+    .text {
+      transform: translate3d(0, 0, 0);
+      transition: transform 0.6s cubic-bezier(0.2, 0, 0, 1) 0.4s;
+    }
+
+    &:after {
+      transform: scale3d(0, 1, 1);
+      right: -$thick;
+      left: -$thick;
+      transform-origin: right;
+      transition: transform 0.2s cubic-bezier(1, 0, 0.65, 1.01) 0.17s,
+        right 0.2s cubic-bezier(1, 0, 0.65, 1.01), left 0s 0.3s;
+    }
+
+    .line {
+      transform: scale3d(1, 1, 1);
+
+      &.-right {
+        transition: transform 0.1s cubic-bezier(1, 0, 0.65, 1.01) 0.2s;
+        transform-origin: bottom;
+      }
+
+      &.-top {
+        transition: transform 0.08s linear 0.4s;
+        transform-origin: right;
+      }
+
+      &.-left {
+        transition: transform 0.08s linear 0.48s;
+        transform-origin: top;
+      }
+
+      &.-bottom {
+        transition: transform 0.5s cubic-bezier(0, 0.53, 0.29, 1) 0.56s;
+        transform-origin: left;
+      }
+    }
+  }
+}
+
+/************************************/
+/* Product page */
+/**********************************/
+.breadcrumb {
+  a {
+    color: $greenDark;
+  }
+}
+
+select {
+  border-radius: 30px !important;
+}
+
+/************
+/*Sign Up page*/
+/**********/
+
+#signUp {
+  margin-top: $headerHeight;
+}
+/************
+/*Admin page*/
+/**********/
+
+#login {
+  margin-top: $headerHeight;
+}
+
+/************
+Rating
+******************/
+
+.btn-popover-container {
+  display: inline-block;
+}
+
+.btn-popover-container .btn-popover-title,
+.btn-popover-container .btn-popover-content {
+  display: none;
+}
+
+/*********************
+*********Panier***************
+*******************/
+#cart {
+  margin-top: $carouselPosition;
+}
+.cartProduct {
+  height: 100px;
+}
+#order {
+  border-radius: 40px;
+  background-color: $greenDark;
+  font-size: 0.8rem;
+}
+.orderProduct {
+  border-bottom: 1px solid $yellowCustom;
+}
+
+/*********************
+*********Delivery and paiement***************
+*******************/
+#BreadcrumbOrder,
+#paiementSection {
+  position: relative;
+  z-index: 50;
+  top: $carouselPosition;
+  margin-top: 20px;
+}
+
+/*********************
+*********FAQ***************
+*******************/
+.topSection {
+  margin-top: 90px;
+  padding-top: 40px;
+  top: $carouselPosition;
+}
+
+/*********************
+*********Categorie page ***************
+*******************/
+#shopPromotions,
+#shopSort,
+#faqPage {
+  margin-top: $carouselPosition;
+}
+
+.categorieHeader {
+  height: 100px;
+  img {
+    height: 100px;
+    width: 100px;
+  }
+}
+
+/*********************
+*****Alimentation page with filter*****
+*******************/
+.product {
+  border-radius: 50px;
+}
+
+.topSectionWithBreadcrumb{
+  margin-top: 160px;
+}
+
+/*********************
+*****Actualités*****
+*******************/
+.actualite {
+  // height: 700px;
+  word-wrap: break-word;
+  overflow: hidden;
+  position: relative;
+}
+
+.date2 {
+  display: block;
+  background-color: $greenDark;
+  border: 1px solid $greenDark;
+  color: $yellowCustom;
+  width: 90px;
+  border-radius: 10px;
+  margin-top: 20px;
+  margin-left: 40px;
+  position: absolute;
+}
+
+/*********************
+*************
+*******************/
+.hide {
+  display: none;
+}
+
+/************************************/
+/* Responsive */
+/**********************************/
+
+@media screen and (min-width: 650px) and (max-width: 1000px) {
+  .carousel-item1 {
+    img {
+      height: 200px;
+    }
+    h2 {
+      margin-top: -130px;
+      margin-bottom: 40px;
+      margin-left: 80px;
+      font-size: 1.5rem;
+      width: 200px;
+    }
+  }
+  .carousel-item2 {
+    img {
+      height: 150%;
+    }
+  }
+  #promos {
+    .row {
+      align-items: start !important;
+      padding-top: 15px;
+    }
+    h4 {
+      font-size: 1.2rem;
+    }
+  }
+  .shopCategorie {
+    h2 {
+      font-size: 1.4rem;
+    }
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .carousel-item1 {
+    img {
+      height: 150px;
+    }
+    h2 {
+      margin-top: -120px;
+      margin-bottom: 100px;
+      margin-left: 80px;
+      font-size: 1.2rem;
+      width: 160px;
+    }
+  }
+  .linkMenu {
+    font-size: 0.7em;
+  }
+  .carousel-item2 {
+    img {
+      height: 150%;
+    }
+  }
+  #promos {
+    .row {
+      align-items: start !important;
+      padding-top: 15px;
+    }
+    h4 {
+      font-size: 1.1rem;
+    }
+  }
+  .shopCategorie {
+    h2 {
+      font-size: 1.2rem !important;
+    }
+  }
+}

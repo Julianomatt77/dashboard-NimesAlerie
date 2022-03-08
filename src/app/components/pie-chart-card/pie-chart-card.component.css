@@ -1,14 +1,17 @@
+/**********************************/
+/*********General*********/
+/**********************************/
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap");
-.darkBlue {
+.darkGreen {
   color: #18558f !important;
 }
 
-.lightBlue {
+.lightGreen {
   color: #eefbfb !important;
 }
 
-.orangeFont {
+.yellowFont {
   color: #ffb976 !important;
 }
 
@@ -20,21 +23,20 @@
   background: #eefbfb !important;
 }
 
-* {
-  font-family: "Roboto", sans-serif;
+.bg-orange {
+  background: #ffb976 !important;
 }
 
-a {
-  text-decoration: none;
-}
-
-li {
-  text-decoration: none;
+p {
+  font-size: 1em;
+  padding: 0px 20px;
+  text-align: justify;
+  color: #18558f;
 }
 
 h1,
 h2 {
-  font-family: "Dancing Script", cursive !important;
+  font-family: "Dancing Script", cursive;
   font-weight: bold;
   color: #18558f;
   text-align: center;
@@ -46,4 +48,16 @@ h3 {
   color: #18558f;
   font-weight: bold;
   font-size: 1.8em;
+}
+
+h4 {
+  color: #18558f;
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+h5 {
+  color: #18558f;
+  font-weight: bold;
+  font-size: 1.3em;
 }

@@ -1,25 +1,47 @@
-<header class="py-2 bg-light">
-  <div class="d-flex justify-content-between" id="headerRow">
-    <!------------Logo---------------->
-    <div class="col-2 text-center">
-      <a routerLink="..."
-        ><img
-          id="logo"
-          src="assets/images/logo_blue.png"
-          alt="Logo/Accueil"
-          class="img-fluid img-responsive"
-          title="La Nîmes'Alerie"
-      /></a>
-    </div>
+<nav class="sb-topnav navbar navbar-expand navbar-dark bg-light darkGreen d-flex justify-content-between">
 
-    <!--------------------Message Icon---------------------->
-    <!-- <div class="col-1 text-center icons">
-      <a>Message icon</a>
-    </div> -->
-
-    <!--------------------Message Icon---------------------->
-    <div class="col-2 text-center icons">
-      <button class="btn btn-warning">déconnexion</button>
-    </div>
+  <!-- Sidebar Toggle-->
+  <div>
+    <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0 darkGreen" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
   </div>
-</header>
+
+  <div class="col-2 text-center">
+    <a href="#"><img id="logo" src="assets/logo/logo_blue.png" alt="Logo/Accueil" class="img-fluid img-responsive" title="Page d'accueil" style="height: 50px"/></a>
+  </div>
+
+  <!-- Navbar-->
+  <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas darkGreen fa-user fa-fw"></i></a>
+      <ul class="dropdown-menu dropdown-menu-end bg-dark yellowFont" aria-labelledby="navbarDropdown">
+        <li><a class="dropdown-item bg-dark yellowFont" href="#">Déconnexion</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+<!--<header class="py-2 bg-light">-->
+<!--  <div class="d-flex justify-content-between" id="headerRow">-->
+<!--    &lt;!&ndash;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;Logo&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&ndash;&gt;-->
+<!--    <div class="col-2 text-center">-->
+<!--      <a routerLink="..."-->
+<!--        ><img-->
+<!--          id="logo"-->
+<!--          src="assets/images/logo_blue.png"-->
+<!--          alt="Logo/Accueil"-->
+<!--          class="img-fluid img-responsive"-->
+<!--          title="La Nîmes'Alerie"-->
+<!--      /></a>-->
+<!--    </div>-->
+
+<!--    &lt;!&ndash;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;Message Icon&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&ndash;&gt;-->
+<!--    &lt;!&ndash; <div class="col-1 text-center icons">-->
+<!--      <a>Message icon</a>-->
+<!--    </div> &ndash;&gt;-->
+
+<!--    &lt;!&ndash;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;Message Icon&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&ndash;&gt;-->
+<!--    <div class="col-2 text-center icons">-->
+<!--      <button class="btn btn-warning">déconnexion</button>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</header>-->

@@ -1,54 +1,69 @@
+/**********************************/
+/*********General*********/
+/**********************************/
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap");
 
-$blueDark: #18558f;
-$blueLight: #eefbfb;
-$orangeCustom: #ffb976;
+$greenDark: #18558f;
+$greenLight: #eefbfb;
+$yellowCustom: #ffb976;
 
 $headerHeight: 75px;
+$navHeight: 70px;
+$carouselPosition: 145px;
 
-.darkBlue {
-  color: $blueDark !important;
+.darkGreen {
+  color: $greenDark !important;
 }
 
-.lightBlue {
-  color: $blueLight !important;
+.lightGreen {
+  color: $greenLight !important;
 }
 
+.yellowFont,
 .orangeFont {
-  color: $orangeCustom !important;
+  color: $yellowCustom !important;
 }
 
 .bg-dark {
-  background: $blueDark !important;
+  background: $greenDark !important;
 }
 
 .bg-light {
-  background: $blueLight !important;
+  background: $greenLight !important;
 }
 
-* {
-  font-family: "Roboto", sans-serif;
-  // background: $blueLight;
-}
-a {
-  text-decoration: none;
-}
-li {
-  text-decoration: none;
+.bg-orange {
+  background: #ffb976 !important;
 }
 
+p {
+  font-size: 1em;
+  padding: 0px 20px;
+  text-align: justify;
+  color: $greenDark;
+}
 h1,
 h2 {
-  font-family: "Dancing Script", cursive !important;
+  font-family: "Dancing Script", cursive;
   font-weight: bold;
-  color: $blueDark;
+  color: $greenDark;
   text-align: center;
   padding: 5px 0px;
   font-size: 2em;
 }
 h3 {
-  color: $blueDark;
+  color: $greenDark;
   font-weight: bold;
   font-size: 1.8em;
+}
+h4 {
+  color: $greenDark;
+  font-weight: bold;
+  font-size: 1.5em;
+}
+h5 {
+  color: $greenDark;
+  font-weight: bold;
+  font-size: 1.3em;
 }

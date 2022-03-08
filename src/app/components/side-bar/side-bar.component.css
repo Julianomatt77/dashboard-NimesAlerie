@@ -20,16 +20,16 @@
   background: #eefbfb !important;
 }
 
-* {
-  font-family: "Roboto", sans-serif;
-}
+/** {*/
+/*  font-family: "Roboto", sans-serif;*/
+/*}*/
 
 a {
-  text-decoration: none;
+  text-decoration: none !important;
 }
 
 li {
-  text-decoration: none;
+  text-decoration: none !important;
 }
 
 h1,
@@ -60,13 +60,13 @@ li {
   padding-top: 10px;
 }
 
-* {
+/* * {
   background: #18558f !important;
   color: #ffb976 !important;
-}
+} */
 
-@media screen and (min-width: 990px) and (max-width: 1400px) {
-  h3 {
-    font-size: 1rem !important;
-  }
-}
+/*@media screen and (min-width: 990px) and (max-width: 1400px) {*/
+/*  h3 {*/
+/*    font-size: 1rem !important;*/
+/*  }*/
+/*}*/

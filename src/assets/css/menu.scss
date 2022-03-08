@@ -1,0 +1,77 @@
+@import "../style.scss";
+
+/***********************************/
+/*Nav menu*/
+/********************************/
+
+nav {
+  position: fixed !important;
+  z-index: 140;
+  top: $headerHeight;
+  height: $navHeight;
+  width: 100%;
+  a {
+    color: $yellowCustom;
+    font-size: 1em;
+    display: block;
+  }
+  div {
+    div {
+      height: 100%;
+    }
+  }
+}
+.navMenu {
+  text-align: center;
+  padding: 0px 10px 0px 10px;
+  width: 20%;
+  margin-top: 0px;
+  a {
+    padding-top: 5px;
+  }
+}
+.navMenu :hover {
+  background: $yellowCustom !important;
+  color: $greenDark !important;
+  a,
+  i {
+    color: $greenDark !important;
+    border: none;
+    background: $yellowCustom !important;
+    text-decoration: none;
+  }
+}
+
+#serviceSubMenu {
+  a {
+    padding-top: 15px;
+  }
+  a:hover {
+    font-weight: bold;
+    background-color: $greenDark !important;
+    color: $yellowCustom !important;
+  }
+}
+
+#boutiqueSubMenu {
+  ul a:hover {
+    font-weight: bold;
+    background-color: $greenDark !important;
+    color: $yellowCustom !important;
+  }
+}
+
+.nav-link {
+  color: $greenDark !important;
+}
+
+.nav-link:focus {
+  color: $yellowCustom !important;
+}
+.dropdown-menu.show {
+  background-color: $yellowCustom;
+}
+#navbarScroll {
+  background-color: $greenDark;
+  z-index: 10;
+}

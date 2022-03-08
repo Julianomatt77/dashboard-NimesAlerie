@@ -1,8 +1,29 @@
 <router-outlet></router-outlet>
-<app-header class="darkBlue"></app-header>
-<div class="container-fluid">
-  <div class="row">
-    <app-dashboard class="col-lg-10 bg-light"></app-dashboard>
-    <app-side-bar class="bg-dark col-lg-2"></app-side-bar>
+
+<div class="bg-light sb-nav-fixed">
+
+  <app-header></app-header>
+
+  <div id="layoutSidenav">
+
+    <app-side-bar></app-side-bar>
+
+    <div id="layoutSidenav_content">
+      <div class="container-fluid">
+
+        <app-dashboard class="col-lg-10 bg-light"></app-dashboard>
+
+      </div>
+    </div>
   </div>
 </div>
+
+
+
+<!--<app-header class="darkBlue"></app-header>-->
+<!--<div class="container-fluid">-->
+<!--  <div class="row">-->
+<!--    <app-dashboard class="col-lg-10 bg-light"></app-dashboard>-->
+<!--    <app-side-bar class="bg-dark col-lg-2"></app-side-bar>-->
+<!--  </div>-->
+<!--</div>-->

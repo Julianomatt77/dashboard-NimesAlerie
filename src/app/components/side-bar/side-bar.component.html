@@ -1,42 +1,158 @@
-<div class="container-fluid">
-  <div class="flex-nowrap">
-    <div class="px-sm-2 px-0">
-      <div
-        class="d-flex flex-column align-items-center align-items-sm-start px-2 text-white"
-      >
-        <div class="my-2 pt-2">
-          <h3>Dashboard</h3>
+<div id="layoutSidenav_nav">
+  <nav class="sb-sidenav accordion bg-dark yellowFont" id="sidenavAccordion">
+    <div class="sb-sidenav-menu">
+      <div class="nav">
+
+        <div class="sb-sidenav-menu-heading ">Accueil</div>
+        <a class="nav-link lightGreen " href="#">
+          <div class="sb-nav-link-icon "><i class="fas fa-tachometer-alt"></i></div>
+          Dashboard
+        </a>
+
+        <div class = "dropdown-divider mt-3 bg-orange"></div>
+        <div class="sb-sidenav-menu-heading">Gestion</div>
+        <a class="nav-link  collapsed yellowFont"
+           href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+          <div class="sb-nav-link-icon active"><i class="bi bi-book"></i></div>
+          Produits
+          <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+        </a>
+        <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+          <nav class="sb-sidenav-menu-nested nav">
+
+            <a class="nav-link yellowFont"
+               href="#">Liste des produits</a>
+
+            <a class="nav-link yellowFont"
+               href="#">Ajouter un produit</a>
+
+          </nav>
         </div>
 
-        <div class="w-100">
-          <div class="dropdown-divider mb-2"></div>
-          <h3>Ventes</h3>
-          <ul class="navbar-nav">
-            <li class="nav-item navMenu">Commandes</li>
-            <li>Catalogue</li>
-            <li>Clients</li>
-            <li>Service client</li>
-          </ul>
+        <a class="nav-link collapsed yellowFont"
+           href="#" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          <div class="sb-nav-link-icon"><i class="bi bi-tags"></i></div>
+          Catégories
+          <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+        </a>
+        <div class="collapse" id="collapseTwo" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+          <nav class="sb-sidenav-menu-nested nav">
+
+            <a class="nav-link yellowFont"
+               href="#">Liste des catégories</a>
+
+            <a class="nav-link yellowFont"
+               href="#">Ajouter une catégorie</a>
+          </nav>
         </div>
 
-        <div class="my-4 w-100">
-          <div class="dropdown-divider mb-2"></div>
-          <h3>Gestion commandes</h3>
-          <ul class="navbar-nav">
-            <li>Livraisons</li>
-            <li>Paiement</li>
-            <li>Factures</li>
-          </ul>
+
+        <a class="nav-link collapsed yellowFont"
+           href="#" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseTwo">
+          <div class="sb-nav-link-icon yellowFont"><i class="bi bi-tag"></i></div>
+          Sous-catégories
+          <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+        </a>
+        <div class="collapse" id="collapseThree" aria-labelledby="headingThree" data-bs-parent="#sidenavAccordion">
+          <nav class="sb-sidenav-menu-nested nav">
+
+            <a class="nav-link yellowFont"
+               href="}">Liste des sous-catégories</a>
+
+            <a class="nav-link yellowFont"
+               href="#">Ajouter une sous-catégorie</a>
+
+          </nav>
         </div>
 
-        <div class="mt-4 mb-3 w-100">
-          <div class="dropdown-divider mb-2"></div>
-          <h3>Configuration</h3>
-          <ul class="navbar-nav">
-            <li>Paramètres</li>
-          </ul>
+        <div class = "dropdown-divider mt-3 bg-orange"></div>
+        <div class="sb-sidenav-menu-heading ">Utilisateurs</div>
+        <a class="nav-link yellowFont "
+           href="#">
+          <div class="sb-nav-link-icon active"><i class="fa-solid fa-users"></i></div>
+          Clients
+        </a>
+
+        <div class = "dropdown-divider mt-3 bg-orange"></div>
+        <div class="sb-sidenav-menu-heading ">Contenu</div>
+        <a class="nav-link collapsed yellowFont"
+           href="#" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+          <div class="sb-nav-link-icon active"><i class="bi bi-newspaper"></i></div>
+          Actualités
+          <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+        </a>
+        <div class="collapse" id="collapseFive" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+          <nav class="sb-sidenav-menu-nested nav">
+
+            <a class="nav-link yellowFont"
+               href="#">Liste des actus</a>
+
+            <a class="nav-link yellowFont"
+               href="#">Ajouter une actu</a>
+
+          </nav>
         </div>
+
+        <div class = "dropdown-divider mt-3 bg-orange"></div>
+        <div class="sb-sidenav-menu-heading ">Commandes</div>
+        <a class="nav-link yellowFont"
+           href="#">
+          <div class="sb-nav-link-icon active"><i class="bi bi-list-task"></i></div>
+          Liste des commandes
+        </a>
+        <a class="nav-link yellowFont"
+           href="#">
+          <div class="sb-nav-link-icon active"><i class="bi bi-receipt"></i></div>
+          Factures
+        </a>
+
       </div>
     </div>
-  </div>
+  </nav>
 </div>
+
+
+
+
+<!--<div class="container-fluid">-->
+<!--  <div class="flex-nowrap">-->
+<!--    <div class="px-sm-2 px-0">-->
+<!--      <div-->
+<!--        class="d-flex flex-column align-items-center align-items-sm-start px-2 text-white"-->
+<!--      >-->
+<!--        <div class="my-2 pt-2">-->
+<!--          <h3>Dashboard</h3>-->
+<!--        </div>-->
+
+<!--        <div class="w-100">-->
+<!--          <div class="dropdown-divider mb-2"></div>-->
+<!--          <h3>Ventes</h3>-->
+<!--          <ul class="navbar-nav">-->
+<!--            <li class="nav-item navMenu">Commandes</li>-->
+<!--            <li>Catalogue</li>-->
+<!--            <li>Clients</li>-->
+<!--            <li>Service client</li>-->
+<!--          </ul>-->
+<!--        </div>-->
+
+<!--        <div class="my-4 w-100">-->
+<!--          <div class="dropdown-divider mb-2"></div>-->
+<!--          <h3>Gestion commandes</h3>-->
+<!--          <ul class="navbar-nav">-->
+<!--            <li>Livraisons</li>-->
+<!--            <li>Paiement</li>-->
+<!--            <li>Factures</li>-->
+<!--          </ul>-->
+<!--        </div>-->
+
+<!--        <div class="mt-4 mb-3 w-100">-->
+<!--          <div class="dropdown-divider mb-2"></div>-->
+<!--          <h3>Configuration</h3>-->
+<!--          <ul class="navbar-nav">-->
+<!--            <li>Paramètres</li>-->
+<!--          </ul>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
