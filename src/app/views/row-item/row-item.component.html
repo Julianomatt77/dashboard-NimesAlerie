@@ -1,6 +1,29 @@
 <div class="container">
   <div class="row">
+    <!-- Tableau meilleures ventes -->
+    <div class="col-12 mt-5 mb-3">
+      <h4 class="text-center" style="color: #18558f">Meilleures ventes</h4>
+      <table class="table">
+        <thead class="">
+          <tr>
+            <th scope="col" style="color: #18558f">#</th>
+            <th scope="col" style="color: #18558f">Nom du produit</th>
+            <th scope="col" style="color: #18558f">Nombre de Ventes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            *ngFor="let product of products | orderBy: 'nbSales' | slice: 0:10"
+          >
+            <td style="color: #18558f">{{ product.id }}</td>
+            <td style="color: #18558f">{{ product.name }}</td>
+            <td style="color: #18558f">{{ product.nbSales }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
     <div class="col-lg-4 col-md-12">
+      <!---------------- Data cards ------------------->
       <app-data-card
         *ngFor="let user of datasCard"
         [type]="user.type"
@@ -11,38 +34,14 @@
     </div>
 
     <div class="col-lg-8 col-md-12">
+      <!--------------  Graphique Bar--------------------------------->
       <app-chart-bar-card class="col-lg-6"></app-chart-bar-card>
+
+      <!--------------  Pie chart --------------------------------->
       <app-pie-chart-card class="col-lg-4"></app-pie-chart-card>
 
+      <!--------------  Graphique ligne--------------------------------->
       <app-graphic-card class="col-12"></app-graphic-card>
-    </div>
-
-    <!-- Tableau meilleures ventes -->
-    <div class="col-12 mt-5">
-      <h4 class="text-center" style="color: #18558f">Meilleures ventes</h4>
-      <table class="table">
-        <thead class="">
-          <tr>
-            <th scope="col" style="color: #18558f">Produit</th>
-            <th scope="col" style="color: #18558f">Description</th>
-            <th scope="col" style="color: #18558f">Nombre de Ventes</th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- <tr
-            *ngFor="
-              let product of products  | orderBy: 'desc':'vente'
-            "
-          > -->
-
-          <!-- Order asc  + slice 10-->
-          <tr *ngFor="let product of products | orderBy: 'vente' | slice: 0:10">
-            <th scope="row" style="color: #18558f">{{ product.name }}</th>
-            <td style="color: #18558f">{{ product.description }}</td>
-            <td style="color: #18558f">{{ product.vente }}</td>
-          </tr>
-        </tbody>
-      </table>
     </div>
   </div>
 </div>

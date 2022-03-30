@@ -7,6 +7,8 @@ export class Data {
   private _dataDate: string;
   private _label: string;
 
+  // bestSales!: [];
+
   constructor(
     id: number,
     type: string,

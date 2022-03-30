@@ -22,9 +22,17 @@ export class GraphicCardComponent implements OnInit {
   dataSub!: Subscription;
   chartDataConfiguration!: ChartConfiguration;
 
+  /*************** Loader and datas for datas from api ************** */
+  // loader = true;
+  // stats!: Data;
   constructor(private datasService: DatasService) {}
 
   ngOnInit(): void {
+    // this.datasService.getStatsGraphLine().subscribe((data) => {
+    //   this.stats = data;
+    //   this.loader = false;
+    // });
+
     this.dataSub = this.datasService.datasShop.subscribe((newData: Data[]) => {
       const options: ChartOptions = {
         responsive: true,

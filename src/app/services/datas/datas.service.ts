@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Data } from 'src/app/models/Data';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
@@ -15,9 +16,19 @@ export class DatasService {
   paniers!: number;
   paniersTotal!: number;
 
+  /********** Data from symfony api  ***********/
+  // endpoint: string = 'https://127.0.0.1:8000/api/';
+  /************ Fin data from api ***************/
+
+  /********* Call HttpClient for connexion with api: private http: HttpClient********* */
   constructor() {
     this.datasShop = new BehaviorSubject<Data[]>(this.createDatas());
   }
+
+  /********** Get datas of api ****************************/
+  // getStatsBestSales(): Observable<Data> {
+  //   return this.http.get<Data>(this.endpoint + 'bestSales');
+  // }
 
   generateNumber(min: number, max: number): number {
     return Math.floor(Math.random() * (max - min + 1));
